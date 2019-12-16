@@ -21,8 +21,6 @@
 
 ### 构建本地单元测试
 
---
-
 **当需要更快地运行测试而不需要与在真实设备上运行测试关联的保真度和置信度时，可以使用本地单元测试来验证应用的逻辑。**
 
 - 如果测试对`Android`框架有依赖性（特别是与框架建立复杂交互的测试），则最好使用 `Robolectric`添加框架依赖项。
@@ -36,8 +34,6 @@
 	> 例：待测试的类除了依赖`java api`外仅依赖`Android Framework`中`Context`这个类,此时我们就可以利用`Mockito`框架`mock` `Context`类，再进行当前类的单元测试编写。([SharedPreferencesHelperTest](https://github.com/android/testing-samples/blob/master/unit/BasicSample/app/src/test/java/com/example/android/testing/unittesting/BasicSample/SharedPreferencesHelperTest.java)) 
 
 #### 设置测试环境
-
---
 
 在`Android Studio`项目中，本地单元测试的源文件存储在`module-name/src/test/java/`中。
 
@@ -253,13 +249,9 @@ class WebServiceTest {
 
 ### 构建插桩单元测试
 
---
-
 **插桩单元测试是在物理设备和模拟器上运行的测试，此类测试可以利用`Android`框架`API`。插桩测试提供的保真度比本地单元测试要高，但运行速度要慢得多。因此，我们建议只有在必须针对真实设备的行为进行测试时才使用插桩单元测试。**
 
 #### 设置测试环境
-
---
 
 在`Android Studio`项目中，插桩测试的源文件存储在`module-name/src/androidTest/java/`。
 
@@ -390,16 +382,12 @@ public void should_do_something_if_some_condition_fulfills() {
 
 ### 设置测试环境
 
---
-
 **参考插桩单元测试环境设置**
 
 #### Service测试
 
 - **利用`ServiceTestRule`，可在单元测试方法运行之前启动服务，并在测试完成后关闭服务。**
 - **`ServiceTestRule`类不支持测试`IntentService`对象。如果需要测试`IntentService`对象，可以应将逻辑封装在一个单独的类中，并创建相应的单元测试。**
-
---
 
 ```
 @MediumTest
@@ -430,8 +418,6 @@ public class LocalServiceTest {
 ```
 
 #### ContentProvider的测试
-
---
 
 **使用`ProviderTestRule`**
 
@@ -484,8 +470,6 @@ public class LocalServiceTest {
 **界面测试的一种方法是直接让测试人员对目标应用执行一系列用户操作，并验证其行为是否正常。不过，这种人工方法会非常耗时、繁琐且容易出错。一种更高效的方法是编写界面测试，以便以自动化方式执行用户操作。自动化方法可以以可重复的方式快速可靠地运行测试。**
 
 ### 设置测试环境
-
---
 
 ```
     dependencies {
