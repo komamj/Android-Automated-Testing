@@ -1,0 +1,2 @@
+include ':app', ':common', ':poeple', ':tv'
+rootProject.name='Movie Sample'
